@@ -10,6 +10,12 @@ test_that("data_path functions work", {
     expect_false(check_default_data_path())
 })
 
+test_that("reticulate checks", {
+    config <- reticulate::py_config()
+    warning(paste(format(names(config), width = 21), config, sep = ": ", collapse = "\n"))
+})
+
+
 # check if `retriever` is installed
 skip_if_no_retriever <- function() {
     have_retriever <- reticulate::py_module_available("retriever")
