@@ -12,7 +12,7 @@ test_that("data_path functions work", {
 
 test_that("reticulate checks", {
     config <- reticulate::py_config()
-    warning(paste(format(names(config), width = 21), config, sep = ": ", collapse = "\n"))
+    stop("\n", paste(format(names(config), width = 21), config, sep = ": ", collapse = "\n"))
 })
 
 
