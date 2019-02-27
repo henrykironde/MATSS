@@ -31,12 +31,12 @@ test_that("retriever direct interfacing functions", {
     expect_true(reticulate::py_module_available("retriever"))
     expect_error(r_data_retriever <- reticulate::import("retriever"), NA)
     expect_error(r_data_retriever$datasets(), NA)
-    expect_error(r_data_retriever$install_csv("turtle-offspring-nesting", "{db}_{table}.csv", FALSE, TRUE), NA)
-
+    expect_error(r_data_retriever$install_csv("ngreatplains-flowering-dates", "{db}_{table}.csv", FALSE, TRUE), NA)
+    
     Sys.setenv(MATSS_DATA_PATH = test_path)
     expect_equal(get_default_data_path(), test_path)
     
-    expect_error(install_retriever_data("turtle-offspring-nesting"), NA)
+    expect_error(install_retriever_data("ngreatplains-flowering-dates"), NA)
     
 })
 # 
