@@ -11,7 +11,7 @@ test_that("data_path functions work", {
 })
 
 test_that("reticulate checks", {
-    if (identical(Sys.getenv("TRAVIS", "true")))
+    if (identical(Sys.getenv("TRAVIS"), "true"))
     {
         reticulate::use_python("/usr/bin/python3")
     }
