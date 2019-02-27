@@ -27,6 +27,13 @@ skip_if_no_retriever <- function() {
         skip("retriever not available for testing")
 }
 
+test_that("retriever direct interfacing functions", {
+    expect_true(reticulate::py_module_available("retriever"))
+    expect_error(r_data_retriever <- reticulate::import("retriever"), NA)
+    expect_error(r_data_retriever$datasets(), NA)
+    expect_error(r_data_retriever$install_csv("turtle-offspring-nesting", "{db}_{table}.csv", FALSE, TRUE), NA)
+})
+
 test_that("retriever downloading and importing work", {
     skip_if_no_retriever()
     Sys.setenv(MATSS_DATA_PATH = test_path)
