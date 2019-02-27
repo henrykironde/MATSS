@@ -32,33 +32,39 @@ test_that("retriever direct interfacing functions", {
     expect_error(r_data_retriever <- reticulate::import("retriever"), NA)
     expect_error(r_data_retriever$datasets(), NA)
     expect_error(r_data_retriever$install_csv("turtle-offspring-nesting", "{db}_{table}.csv", FALSE, TRUE), NA)
-})
 
-test_that("retriever downloading and importing work", {
-    skip_if_no_retriever()
     Sys.setenv(MATSS_DATA_PATH = test_path)
     expect_equal(get_default_data_path(), test_path)
     
     expect_error(install_retriever_data("turtle-offspring-nesting"), NA)
-    expect_error(dat <- import_retriever_data("turtle-offspring-nesting"), NA)
-    expect_known_hash(dat, "a21402e218")
-    expect_known_hash(dat$turtle_offspring_nesting_species, "d76beee9e3")
-})
-
-test_that("retriever downloading and importing work", {
-    skip_if_no_retriever()
-    Sys.setenv(MATSS_DATA_PATH = test_path)
-    expect_equal(get_default_data_path(), test_path)
     
-    expect_error(install_retriever_data("veg-plots-sdl"), NA)
-    expect_error(dat <- import_retriever_data("veg-plots-sdl"), NA)
-    expect_known_hash(dat$veg_plots_sdl_Count1906, "4f6b34f60a")
-    expect_known_hash(dat$veg_plots_sdl_Photo_info, "5fa488da2a")
-    expect_known_hash(dat$veg_plots_sdl_Plot_corners, "53e7e72ee9")
-    expect_known_hash(dat$veg_plots_sdl_Plots, "b0c6ec4b6e")
-    expect_known_hash(dat$veg_plots_sdl_Seedling_counts, "dd0d14c55a")
-    expect_known_hash(dat$veg_plots_sdl_SMCover, "6b03c46cbf")
-    expect_known_hash(dat$veg_plots_sdl_SMDensity, "1a5673f8ff")
-    expect_known_hash(dat$veg_plots_sdl_Stake_info, "6e7608632d")
-    expect_known_hash(dat$veg_plots_sdl_Species, "e4276e9361")
 })
+# 
+# test_that("retriever downloading and importing work", {
+#     skip_if_no_retriever()
+#     Sys.setenv(MATSS_DATA_PATH = test_path)
+#     expect_equal(get_default_data_path(), test_path)
+#     
+#     expect_error(install_retriever_data("turtle-offspring-nesting"), NA)
+#     expect_error(dat <- import_retriever_data("turtle-offspring-nesting"), NA)
+#     expect_known_hash(dat, "a21402e218")
+#     expect_known_hash(dat$turtle_offspring_nesting_species, "d76beee9e3")
+# })
+# 
+# test_that("retriever downloading and importing work", {
+#     skip_if_no_retriever()
+#     Sys.setenv(MATSS_DATA_PATH = test_path)
+#     expect_equal(get_default_data_path(), test_path)
+#     
+#     expect_error(install_retriever_data("veg-plots-sdl"), NA)
+#     expect_error(dat <- import_retriever_data("veg-plots-sdl"), NA)
+#     expect_known_hash(dat$veg_plots_sdl_Count1906, "4f6b34f60a")
+#     expect_known_hash(dat$veg_plots_sdl_Photo_info, "5fa488da2a")
+#     expect_known_hash(dat$veg_plots_sdl_Plot_corners, "53e7e72ee9")
+#     expect_known_hash(dat$veg_plots_sdl_Plots, "b0c6ec4b6e")
+#     expect_known_hash(dat$veg_plots_sdl_Seedling_counts, "dd0d14c55a")
+#     expect_known_hash(dat$veg_plots_sdl_SMCover, "6b03c46cbf")
+#     expect_known_hash(dat$veg_plots_sdl_SMDensity, "1a5673f8ff")
+#     expect_known_hash(dat$veg_plots_sdl_Stake_info, "6e7608632d")
+#     expect_known_hash(dat$veg_plots_sdl_Species, "e4276e9361")
+# })
