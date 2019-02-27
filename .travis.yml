@@ -21,8 +21,11 @@ before_install:
   - sudo apt-get update -qq
   - sudo apt-get install libudunits2-dev
   - sudo apt-get install python3
-  - sudo pip3 install --upgrade pip
-  - sudo pip3 install git+https://git@github.com/weecology/retriever.git --user
+  - sudo -H pip3 install --upgrade pip
+  - sudo -H pip3 install numpy
+  - sudo -H pip3 install git+https://git@github.com/weecology/retriever.git
+  - pip3 show numpy
+  - pip3 show retriever
 
 matrix:
   include:
