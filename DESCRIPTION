@@ -31,9 +31,6 @@ Imports:
     magrittr,
     ggplot2,
     lubridate,
-    portalr (>= 0.2.4),
-    LDATS (>= 0.1.0),
-    drake (>= 6.2.1.9003),
     dplyr,
     tidyr,
     rdataretriever,
@@ -43,8 +40,7 @@ Imports:
     networkD3,
     here,
     tibble,
-    rlang,
-    usethis (>= 1.4.0.9000)
+    rlang
 Suggests:
     testthat,
     knitr,

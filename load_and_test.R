@@ -17,13 +17,19 @@ suppressMessages(
 )
 
 # Install GitHub packages
- 
+# dev_mode(true)
+# remove.packages('portalr')
+# remove.packages('LDATS')
+# remove.packages('drake')
 devtools::install_github("weecology/portalr")
 devtools::install_github("ropensci/drake")
+# devtools::remove.p
 devtools::install_github("rstudio/reticulate")
 devtools::install_github("ropensci/rdataretriever")
 devtools::install_github("r-lib/usethis")
 devtools::install_github("weecology/LDATS")
+
+
 library(devtools)
 library(portalr)
 library(drake)
